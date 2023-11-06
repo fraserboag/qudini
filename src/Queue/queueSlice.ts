@@ -2,11 +2,13 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface QueueState {
-  customers: Array<any>
+  customers: Array<any>,
+  searchValue: string
 }
 
 const initialState: QueueState = {
-  customers: []
+  customers: [],
+  searchValue: ''
 }
 
 export const queueSlice = createSlice({
@@ -16,9 +18,12 @@ export const queueSlice = createSlice({
     updateCustomers: (state, action:PayloadAction<Array<any>>) => {
       state.customers = action.payload
     },
+    updateSearchValue:(state, action:PayloadAction<string>) => {
+      state.searchValue = action.payload
+    }
   },
 })
 
-export const { updateCustomers } = queueSlice.actions
+export const { updateCustomers, updateSearchValue } = queueSlice.actions
 
 export default queueSlice

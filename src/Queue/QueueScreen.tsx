@@ -5,6 +5,7 @@ import Customer from './components/Customer.tsx'
 import { readableDateTime } from '../utils.ts'
 import { RootState } from '../store.ts'
 import { updateCustomers } from './queueSlice.ts'
+import SearchInput from './components/SearchInput.tsx'
 
 const QueueScreen: FC = () => {
   const customers = useSelector((state: RootState) => state.queue.customers)
@@ -14,12 +15,14 @@ const QueueScreen: FC = () => {
     fetchQueueData()
       .then((response) => response.json())
       .then((json) => {
+        console.log(json.queueData.queue.customersToday)
         dispatch(updateCustomers(json.queueData.queue.customersToday))
       })
   }, [dispatch])
 
   return (
     <div>
+      <SearchInput />
       {customers.map((c) => {
         return (
           <Customer
