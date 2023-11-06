@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1.25em 1em;
   font-family: "Ubuntu", sans-serif;
 `;

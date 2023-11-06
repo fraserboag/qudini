@@ -3,12 +3,14 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface QueueState {
   customers: Array<any>,
-  searchValue: string
+  searchValue: string,
+  autoRefreshEnabled: boolean
 }
 
-const initialState: QueueState = {
+export const initialState: QueueState = {
   customers: [],
-  searchValue: ''
+  searchValue: '',
+  autoRefreshEnabled: false
 }
 
 export const queueSlice = createSlice({
@@ -20,10 +22,13 @@ export const queueSlice = createSlice({
     },
     updateSearchValue:(state, action:PayloadAction<string>) => {
       state.searchValue = action.payload
+    },
+    toggleAutoRefresh:(state) => {
+      state.autoRefreshEnabled = !state.autoRefreshEnabled
     }
   },
 })
 
-export const { updateCustomers, updateSearchValue } = queueSlice.actions
+export const { updateCustomers, updateSearchValue, toggleAutoRefresh } = queueSlice.actions
 
 export default queueSlice

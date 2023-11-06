@@ -17,5 +17,5 @@ export function readableDateTime(date :string) :string {
 export function getGravatarUrl (email: string) :string
 {
   if(!email) email = 'default';
-  return (`https://secure.gravatar.com/avatar/${md5(email.toLowerCase().trim())}?size=290`);
+  return (`https://secure.gravatar.com/avatar/${md5(email.toLowerCase().trim())}?size=300`);
 }

@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import CustomerCard from './CustomerCard.ts'
 import ProfilePicture from './ProfilePicture.ts'
 import Name from './Name.ts'
+import ExpectedAt from './ExpectedAt.ts'
 import Content from './Content.ts'
 import { getGravatarUrl } from '../../utils.ts'
 import { useSelector } from 'react-redux'
@@ -26,9 +27,7 @@ const Customer: FC<CustomerProps> = (props) => {
       <ProfilePicture avatarUrl={getGravatarUrl(props.email)} />
       <Content>
         <Name>{props.name}</Name>
-        <div>
-          <strong>Expected Time:</strong> {props.expectedTime}
-        </div>
+        <ExpectedAt>Expected at {props.expectedTime}</ExpectedAt>
       </Content>
     </CustomerCard>
   )
