@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
-import CustomerCard from './CustomerCard'
+import CustomerCard from './CustomerCard.ts'
 import ProfilePicture from './ProfilePicture.ts'
-import Name from './Name'
-import Content from './Content'
-import { getGravatarUrl } from '../../utils'
+import Name from './Name.ts'
+import Content from './Content.ts'
+import { getGravatarUrl } from '../../utils.ts'
 
 interface CustomerProps {
   name: string

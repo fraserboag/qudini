@@ -1,10 +1,10 @@
 import React, { useEffect, FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchQueueData } from '../mockApi'
-import Customer from './components/Customer'
-import { readableDateTime } from '../utils'
-import { RootState } from '../store'
-import { updateCustomers } from './queueSlice'
+import Customer from './components/Customer.tsx'
+import { readableDateTime } from '../utils.ts'
+import { RootState } from '../store.ts'
+import { updateCustomers } from './queueSlice.ts'
 
 const QueueScreen: FC = () => {
   const customers = useSelector((state: RootState) => state.queue.customers)
@@ -21,7 +21,6 @@ const QueueScreen: FC = () => {
   return (
     <div>
       {customers.map((c) => {
-        console.log(c)
         return (
           <Customer
             key={c.id}
