@@ -1,18 +1,22 @@
-import React, { useState, useEffect, FC } from 'react'
+import React, { useEffect, FC } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchQueueData } from '../mockApi'
 import Customer from './components/Customer'
 import { readableDateTime } from '../utils'
+import { RootState } from '../store'
+import { updateCustomers } from './queueSlice'
 
 const QueueScreen: FC = () => {
-  const [customers, setCustomers] = useState<Array<any>>([])
+  const customers = useSelector((state: RootState) => state.queue.customers)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     fetchQueueData()
       .then((response) => response.json())
       .then((json) => {
-        setCustomers(json.queueData.queue.customersToday)
+        dispatch(updateCustomers(json.queueData.queue.customersToday))
       })
-  }, [])
+  }, [dispatch])
 
   return (
     <div>
