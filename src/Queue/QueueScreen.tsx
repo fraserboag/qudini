@@ -27,6 +27,7 @@ const QueueScreen: FC = () => {
             key={c.id}
             name={c.customer.name}
             expectedTime={readableDateTime(c.expectedTime)}
+            email={c.customer.emailAddress}
           />
         )
       })}

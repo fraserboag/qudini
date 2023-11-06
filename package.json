@@ -7,6 +7,7 @@
     "@types/jest": "^29.5.7",
     "base-64": "^0.1.0",
     "immutable": "^4.0.0-rc.12",
+    "md5": "^2.3.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -29,5 +30,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@types/styled-components": "^5.1.29"
+  }
 }

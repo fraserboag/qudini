@@ -1,18 +1,20 @@
 import React, { FC } from 'react'
 import CustomerCard from './CustomerCard'
-import ProfilePicture from './ProfilePicture'
+import ProfilePicture from './ProfilePicture.ts'
 import Name from './Name'
 import Content from './Content'
+import { getGravatarUrl } from '../../utils'
 
 interface CustomerProps {
   name: string
   expectedTime: string
+  email: string
 }
 
 const Customer: FC<CustomerProps> = (props) => {
   return (
     <CustomerCard>
-      <ProfilePicture />
+      <ProfilePicture avatarUrl={getGravatarUrl(props.email)} />
       <Content>
         <Name>{props.name}</Name>
         <div>
